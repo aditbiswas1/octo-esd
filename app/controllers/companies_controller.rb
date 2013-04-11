@@ -1,6 +1,7 @@
 class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
+  before_filter :authenticate_user!, except: [:index, :show]
   def index
     @companies = Company.all
 
